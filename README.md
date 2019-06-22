@@ -12,6 +12,6 @@ Automatoes implementiran je u programskom jeziku Python, koristeći [PyQt5](http
 ## Ko?
 
 Za Automatoes zaslužan je iskusan tim inženjera, uključujući:
-- [Igor Lukić, SW 53/17]()
-- [Uroš Nenadić, MH 58/17]()
+- [Igor Lukić, SW 53/17](https://github.com/cigor99)
+- [Uroš Nenadić, MH 58/17](https://github.com/nenadicu)
 - [Mladen Samardžić, SW 37/17](https://github.com/mladenactually)
