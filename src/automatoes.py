@@ -27,41 +27,42 @@ def devices_setup():
     # kitchen
     fr = DeviceL('fridge', 100, 0, 0)
     devices.append(fr)
-    st = DeviceL('Stove')
+    st = DeviceL('Stove', 80,0,50)
     devices.append(st)
-    dw = DeviceL('Dish washer')
+    dw = DeviceL('Dish washer',120,60,0)
     devices.append(dw)
-    ow = DeviceL('Oven')
+    ow = DeviceL('Oven', 100,0,0)
     devices.append(ow)
-    mw = DeviceL('Microwave')
+    mw = DeviceL('Microwave',30,0,0)
     devices.append(mw)
-    kl = DeviceL('Kitchen light')
+    kl = DeviceL('Kitchen light',25,0,0)
     devices.append(kl)
 
     # bathroom
 
-    wm = DeviceL('washing machine')
+    wm = DeviceL('washing machine',120,50,0)
     devices.append(wm)
-    dr = DeviceL('Dryer')
+    dr = DeviceL('Dryer',100,0,0)
     devices.append(dr)
-    bl = DeviceL('Bathroom light')
+    bl = DeviceL('Bathroom light',25,0,0)
     devices.append(bl)
 
     # livingroom
 
-    tv = DeviceL('tv')
+    tv = DeviceL('tv',100,0,0)
     devices.append(tv)
-    ac = DeviceL('Air condition')
+    ac = DeviceL('Air condition',100,0,0)
     devices.append(ac)
-    ll = DeviceL('Livingroom light')
+    ll = DeviceL('Livingroom light',25,0,0)
+    devices.append(ll)
 
     # rooms
 
-    lrl = DeviceL('Left room light')
+    lrl = DeviceL('Left room light',25,0,0)
     devices.append(lrl)
-    rrl = DeviceL('Right room light')
+    rrl = DeviceL('Right room light',25,0,0)
     devices.append(rrl)
-    cp = DeviceL('Computer')
+    cp = DeviceL('Computer',70,0,0)
     devices.append(cp)
 
     return devices
