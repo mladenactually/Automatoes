@@ -16,8 +16,45 @@ def run():
 
 def devices_setup():
     devices = []
+    #kitchen
+    fr = Device('fridge')
+    devices.append(fr)
+    st = Device('Stove')
+    devices.append(st)
+    dw = Device('Dish washer')
+    devices.append(dw)
+    ow = Device('Oven')
+    devices.append(ow)
+    mw = Device('Microwave')
+    devices.append(mw)
+    kl = Device('Kitchen light')
+    devices.append(kl)
+
+    #bathroom
+
     wm = Device('washing machine')
     devices.append(wm)
+    dr = Device('Dryer')
+    devices.append(dr)
+    bl = Device('Bathroom light')
+    devices.append(bl)
+
+    #livingroom
+
+    tv = Device('tv')
+    devices.append(tv)
+    ac = Device('Air condition')
+    devices.append(ac)
+    ll = Device('Livingroom light')
+
+    #rooms
+
+    lrl = Device('Left room light')
+    devices.append(lrl)
+    rrl = Device('Right room light')
+    devices.append(rrl)
+    cp = Device('Computer')
+    devices.append(cp)
 
     return devices
 
