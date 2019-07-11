@@ -1,6 +1,7 @@
 from sys import argv, exit
 
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidegts import QApplication
+
 from src.view.mainwindow import MainWindow
 
 
