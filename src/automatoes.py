@@ -23,47 +23,47 @@ def run():
 
 
 def devices_setup():
-    devices = []
+    devices = {}
     # kitchen
     fr = DeviceL('fridge', 100, 0, 0)
-    devices.append(fr)
+    devices['Fridge'] = fr
     st = DeviceL('Stove', 80,0,50)
-    devices.append(st)
+    devices['Stove'] = st
     dw = DeviceL('Dish washer',120,60,0)
-    devices.append(dw)
-    ow = DeviceL('Oven', 100,0,0)
-    devices.append(ow)
+    devices['Dish washer'] = dw
+    ov = DeviceL('Oven', 100,0,0)
+    devices['Oven'] = ov
     mw = DeviceL('Microwave',30,0,0)
-    devices.append(mw)
+    devices['Microwave'] = mw
     kl = DeviceL('Kitchen light',25,0,0)
-    devices.append(kl)
+    devices["Kitchen light"] = kl
 
     # bathroom
 
-    wm = DeviceL('washing machine',120,50,0)
-    devices.append(wm)
+    wm = DeviceL('Washing machine',120,50,0)
+    devices['Washing machine'] = wm
     dr = DeviceL('Dryer',100,0,0)
-    devices.append(dr)
+    devices['Dryer'] = dr
     bl = DeviceL('Bathroom light',25,0,0)
-    devices.append(bl)
+    devices['Bathroom light'] = bl
 
     # livingroom
 
     tv = DeviceL('tv',100,0,0)
-    devices.append(tv)
+    devices['Tv'] = tv
     ac = DeviceL('Air condition',100,0,0)
-    devices.append(ac)
+    devices['Air condition'] = ac
     ll = DeviceL('Livingroom light',25,0,0)
-    devices.append(ll)
+    devices['Livingroom light'] = ll
 
     # rooms
 
     lrl = DeviceL('Left room light',25,0,0)
-    devices.append(lrl)
+    devices['Left room light'] = lrl
     rrl = DeviceL('Right room light',25,0,0)
-    devices.append(rrl)
+    devices['Right room light'] = rrl
     cp = DeviceL('Computer',70,0,0)
-    devices.append(cp)
+    devices['Computer'] = cp
 
     return devices
 
