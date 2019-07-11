@@ -29,3 +29,4 @@ class SmartHome:
 
     def internet_bills(self):
         return filter(lambda b: b.unit == ResourceType.INTERNET, self.all_bills())
+
