@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QApplication, QDialog, QPushButton, QRadioButton, QComboBox, QGridLayout, QLabel, QLineEdit
-from PyQt5.QtCore import Qt
-from sys import argv, exit
+
+
 
 class LoginDialog(QDialog):
     def __init__(self):
@@ -23,4 +23,10 @@ class LoginDialog(QDialog):
         layout.addWidget(self.selectButton, 4, 2, 1, 1)
         self.cancelButton = QPushButton("Cancel", self)
         layout.addWidget(self.cancelButton, 4, 3, 1, 1)
-        #self.makeActions()
+        self.cancelButton.clicked.connect(self.close)
+        self.selectButton.clicked.connect(self.confirmed)
+
+    def confirmed(self):
+        self.username = self.name.text()
+        self.password = self.passw.text()
+        self.hide()
