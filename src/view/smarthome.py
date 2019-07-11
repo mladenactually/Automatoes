@@ -1,5 +1,5 @@
 from src.model.smarthome import SmartHome
-
+from src.view.device_dialog import DeviceDialog
 from PyQt5.QtWidgets import QWidget, QMainWindow, QStatusBar, QGridLayout, QLabel, QComboBox, QPushButton, QHBoxLayout
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtCore import Qt
@@ -25,21 +25,37 @@ class SmartHomeView(QWidget):
         #####################################################
 
         fridge = QPushButton('Fridge', lab)
+        fridge.clicked.connect(self.open_fridge)
         air_condition = QPushButton('AC', lab)
+        air_condition.clicked.connect(self.open_ac)
         dish_washer = QPushButton('Dish \n Washer', lab)
+        dish_washer.clicked.connect(self.open_dishw)
         oven = QPushButton('Oven', lab)
+        oven.clicked.connect(self.open_oven)
         stove = QPushButton('Stove', lab)
+        stove.clicked.connect(self.open_stove)
         microwave = QPushButton('Microwave', lab)
+        microwave.clicked.connect(self.open_micro)
         washing_machine = QPushButton('Washing \n machine', lab)
+        washing_machine.clicked.connect(self.open_washma)
         dryer = QPushButton('Dryer', lab)
+        dryer.clicked.connect(self.open_dryer)
         tv = QPushButton('Tv', lab)
-        stereo = QPushButton('Stereo',lab)
+        tv.clicked.connect(self.open_tv)
+        stereo = QPushButton('Stereo', lab)
+        stereo.clicked.connect(self.open_stereo)
         computer = QPushButton('Computer', lab)
+        computer.clicked.connect(self.open_comp)
         kitchen_light = QPushButton('Light', lab)
+        kitchen_light.clicked.connect(self.open_kitchenl)
         bathroom_light = QPushButton('Light', lab)
+        bathroom_light.clicked.connect(self.open_bathrooml)
         living_room_light = QPushButton('Light', lab)
+        living_room_light.clicked.connect(self.open_livingl)
         first_room_light = QPushButton('Light', lab)
+        first_room_light.clicked.connect(self.open_leftrooml)
         second_room_light = QPushButton('Light', lab)
+        second_room_light.clicked.connect(self.open_rightrooml)
 
 
         #KITCHEN
@@ -148,3 +164,57 @@ class SmartHomeView(QWidget):
         bts.setLayout(button_layout)
         layout.addWidget(bts, 3, 0)
         self.setLayout(layout)
+
+    def open_dialog(self, name):
+        device = self.home.devices[name]
+        dialog = DeviceDialog(device)
+        dialog.show()
+        dialog.exec_()
+
+    def open_fridge(self):
+        self.open_dialog('Fridge')
+
+    def open_stove(self):
+        self.open_dialog('Stove')
+
+    def open_dishw(self):
+        self.open_dialog('Dish washer')
+
+    def open_oven(self):
+        self.open_dialog('Oven')
+
+    def open_micro(self):
+        self.open_dialog('Microwave')
+
+    def open_kitchenl(self):
+        self.open_dialog('Kitchen light')
+
+    def open_washma(self):
+        self.open_dialog('Washing machine')
+
+    def open_dryer(self):
+        self.open_dialog('Dryer')
+
+    def open_bathrooml(self):
+        self.open_dialog('Bathroom light')
+
+    def open_tv(self):
+        self.open_dialog('Tv')
+
+    def open_ac(self):
+        self.open_dialog('AC')
+
+    def open_livingl(self):
+        self.open_dialog('Living room light')
+
+    def open_stereo(self):
+        self.open_dialog('Stereo')
+
+    def open_leftrooml(self):
+        self.open_dialog('Left room light')
+
+    def open_rightrooml(self):
+        self.open_dialog('Right room light')
+
+    def open_comp(self):
+        self.open_dialog('Computer')
