@@ -11,7 +11,12 @@ class SmartHome:
     def all_bills(self):
         if self.bills:
             return self.bills
-        # TODO: ако је листа self.bills празна, за претходних шест месеци направити рачуне и убацити их у листу.
+        else:
+            self.bills.append(self.electricity_bills())
+            self.bills.append(self.gas_bills())
+            self.bills.append(self.water_bills())
+            self.bills.append(self.internet_bills())
+        # XXX TODO: ако је листа self.bills празна, за претходних шест месеци направити рачуне и убацити их у листу.
 
     def electricity_bills(self):
         return filter(lambda b: b.unit == ResourceType.ELECTRICITY, self.all_bills())

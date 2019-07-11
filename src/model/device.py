@@ -14,9 +14,16 @@ class ToggleSettings:
         self.is_on = True
 
     def turn_on_for(self, duration):
+        dur = duration
         self.is_on = True
+        while dur > 0:
+            dur = dur - 1
+        self.is_on = False
 
     def turn_on_in(self, delay):
+        d = 0
+        while d < delay:
+            d = d + 1
         self.is_on = True
 
     def turn_off(self):
@@ -24,8 +31,15 @@ class ToggleSettings:
 
     def turn_off_for(self, duration):
         self.is_on = False
+        dur = duration
+        while dur > 0:
+            dur = dur -1
+        self.is_on = True
 
     def turn_off_in(self, delay):
+        d = 0
+        while d < delay:
+            d = d + 1
         self.is_on = False
 
 
