@@ -2,23 +2,35 @@ from sys import argv, exit
 import os
 from src.view.device_dialog import DeviceL
 from src.model.smarthome import SmartHome
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication, QDialog, QHBoxLayout, QLabel
 from src.view.login_dialog import LoginDialog
 from src.view.mainwindow import MainWindow
 
 
 def run():
     user_data = load_user_data()
+    for item in user_data.keys():
+        print(item, user_data[item])
     app = QApplication(argv)
     dialog = LoginDialog()
     dialog.show()
     dialog.exec_()
-
+    while not login(user_data, dialog.username, dialog.password):
+        if dialog.exit:
+            break
+        dialog.wrong()
+        dialog.show()
+        dialog.exec_()
     if login(user_data, dialog.username, dialog.password):
-        app.home = home_setup()
+        open_main_window(app)
+    exit(0)
 
-        window = MainWindow(app)
-        window.show()
+
+def open_main_window(app):
+    app.home = home_setup()
+
+    window = MainWindow(app)
+    window.show()
     exit(app.exec_())
 
 
@@ -99,6 +111,7 @@ def load_user_data():
         line = file.readline()
     file.close()
     return user_data
+
 
 if __name__ == '__main__':
     run()

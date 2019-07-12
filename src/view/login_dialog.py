@@ -7,6 +7,8 @@ class LoginDialog(QDialog):
         super(LoginDialog, self).__init__()
         self.username = ""
         self.password = ""
+        self.wrong_label = QLabel("Wrong login")
+        self.exit = False
         self.setup_components()
 
     def setup_components(self):
@@ -23,8 +25,11 @@ class LoginDialog(QDialog):
         layout.addWidget(self.selectButton, 4, 2, 1, 1)
         self.cancelButton = QPushButton("Cancel", self)
         layout.addWidget(self.cancelButton, 4, 3, 1, 1)
-        self.cancelButton.clicked.connect(self.close)
+        self.cancelButton.clicked.connect(self.cancel_action)
         self.selectButton.clicked.connect(self.confirmed)
+
+        layout.addWidget(self.wrong_label)
+        self.wrong_label.hide()
 
     def confirmed(self):
         if self.name.text() == "":
@@ -33,4 +38,12 @@ class LoginDialog(QDialog):
             return
         self.username = self.name.text()
         self.password = self.passw.text()
-        self.close()
+        self.hide()
+
+    def wrong(self):
+        self.wrong_label.setStyleSheet('color: red')
+        self.wrong_label.show()
+
+    def cancel_action(self):
+        self.exit = True
+        self.hide()
