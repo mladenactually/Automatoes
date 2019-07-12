@@ -1,8 +1,10 @@
 from src.model.smarthome import SmartHome
 from src.view.device_dialog import DeviceDialog
+from src.view.bill_dialog import BillDialog
 from PyQt5.QtWidgets import QWidget, QMainWindow, QStatusBar, QGridLayout, QLabel, QComboBox, QPushButton, QHBoxLayout
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtCore import Qt
+
 
 class SmartHomeView(QWidget):
     def __init__(self, home):
@@ -152,8 +154,11 @@ class SmartHomeView(QWidget):
         label = QLabel("Bills")
         layout.addWidget(label, 2, 0)
         water_button = QPushButton("Water Bill")
+        water_button.clicked.connect(self.open_water_bill)
         gas_button = QPushButton("Gas Bill")
+        gas_button.clicked.connect(self.open_gas_bill)
         electricity_button = QPushButton("Elactricity Bill")
+        electricity_button.clicked.connect(self.open_electricty_bill)
         internet_button = QPushButton("Internet Bill")
         button_layout = QHBoxLayout()
         button_layout.addWidget(water_button)
@@ -218,3 +223,17 @@ class SmartHomeView(QWidget):
 
     def open_comp(self):
         self.open_dialog('Computer')
+
+    def open_bill_dialog(self, unit, home):
+        dialog = BillDialog(unit,home)
+        dialog.show()
+        dialog.exec_()
+
+    def open_water_bill(self):
+        self.open_bill_dialog('Water',self.home)
+
+    def open_gas_bill(self):
+        self.open_bill_dialog('Gas', self.home)
+
+    def open_electricty_bill(self):
+        self.open_bill_dialog('Electricty',self.home)
