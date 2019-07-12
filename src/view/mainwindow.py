@@ -40,11 +40,17 @@ class MainWindow(QMainWindow):
 
 
     def toolbar_widget_setup(self):
-        new_user = QPushButton('Add new user')
+        new_user = QPushButton('Add new user',)
         new_user.clicked.connect(self.open_new_user_dialog)
 
+        self.newAction = QAction(QIcon("Add_user.png"), "Add new user", self, statusTip="Add new user", triggered=self.open_new_user_dialog)
+        self.logoutAction = QAction(QIcon("logout.png"), "Logout", self, statusTip = "Add new user", triggered = self.close_action)
+
+
         self.mainToolBar = QToolBar()
-        self.mainToolBar.addWidget(new_user)
+        self.mainToolBar.addAction(self.newAction)
+        self.mainToolBar.addSeparator()
+        self.mainToolBar.addAction(self.logoutAction)
         self.addToolBar(self.mainToolBar)
         self.mainToolBar.setFixedHeight(36)
         self.mainToolBar.setFloatable(False)
@@ -53,3 +59,6 @@ class MainWindow(QMainWindow):
         dialog = NewUserDialog()
         dialog.show()
         dialog.exec_()
+
+    def close_action(self):
+        self.close()
