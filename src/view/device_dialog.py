@@ -11,9 +11,9 @@ class DeviceDialog(QDialog):
         self.setLayout(layout)
         self.setWindowTitle(self.device.name)
         #layout.addWidget(QLabel(self.device.name), 0, 0, 1, 1)
-        layout.addWidget(QLabel('Electirity consumption: ' + str(self.device.elect)), 0, 0, 1, 1)
-        layout.addWidget(QLabel('Water consumption: ' + str(self.device.water)), 1, 0, 1, 1)
-        layout.addWidget(QLabel('Gas consumption: ' + str(self.device.gas)), 2, 0, 1, 1)
+        layout.addWidget(QLabel('Electirity consumption: ' + str(self.device.elect) + " kw/h"), 0, 0, 1, 1)
+        layout.addWidget(QLabel('Water consumption: ' + str(self.device.water) + " l/h"), 1, 0, 1, 1)
+        layout.addWidget(QLabel('Gas consumption: ' + str(self.device.gas) + " l"), 2, 0, 1, 1)
 
         self.on = QRadioButton()
         layout.addWidget(QLabel("On"), 3, 1, 1, 1)

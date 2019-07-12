@@ -9,8 +9,6 @@ from src.view.mainwindow import MainWindow
 
 def run():
     user_data = load_user_data()
-    for item in user_data.keys():
-        print(item, user_data[item])
     app = QApplication(argv)
     dialog = LoginDialog()
     dialog.show()
@@ -37,46 +35,46 @@ def open_main_window(app):
 def devices_setup():
     devices = {}
     # kitchen
-    fr = DeviceL('fridge', 100, 0, 0)
+    fr = DeviceL('fridge', 10, 0, 0)
     devices['Fridge'] = fr
-    st = DeviceL('Stove', 80, 0, 50)
+    st = DeviceL('Stove', 8, 0, 5)
     devices['Stove'] = st
-    dw = DeviceL('Dish washer', 120, 60, 0)
+    dw = DeviceL('Dish washer', 12, 6, 0)
     devices['Dish washer'] = dw
-    ov = DeviceL('Oven', 100, 0, 0)
+    ov = DeviceL('Oven', 10, 0, 0)
     devices['Oven'] = ov
-    mw = DeviceL('Microwave', 30, 0, 0)
+    mw = DeviceL('Microwave', 3, 0, 0)
     devices['Microwave'] = mw
-    kl = DeviceL('Kitchen light', 25, 0, 0)
+    kl = DeviceL('Kitchen light', 2, 0, 0)
     devices["Kitchen light"] = kl
 
     # bathroom
 
-    wm = DeviceL('Washing machine', 120, 50, 0)
+    wm = DeviceL('Washing machine', 12, 5, 0)
     devices['Washing machine'] = wm
-    dr = DeviceL('Dryer', 100, 0, 0)
+    dr = DeviceL('Dryer', 10, 0, 0)
     devices['Dryer'] = dr
-    bl = DeviceL('Bathroom light', 25, 0, 0)
+    bl = DeviceL('Bathroom light', 2, 0, 0)
     devices['Bathroom light'] = bl
 
     # livingroom
 
-    tv = DeviceL('tv', 100, 0, 0)
+    tv = DeviceL('tv', 10, 0, 0)
     devices['Tv'] = tv
-    ac = DeviceL('Air condition', 100, 0, 0)
+    ac = DeviceL('Air condition', 10, 0, 0)
     devices['AC'] = ac
-    ll = DeviceL('Livingroom light', 25, 0, 0)
+    ll = DeviceL('Livingroom light', 2, 0, 0)
     devices['Livingroom light'] = ll
-    se = DeviceL('Stereo', 40, 0, 0)
+    se = DeviceL('Stereo', 4, 0, 0)
     devices['Stereo'] = se
 
     # rooms
 
-    lrl = DeviceL('Left room light', 25, 0, 0)
+    lrl = DeviceL('Left room light', 2, 0, 0)
     devices['Left room light'] = lrl
-    rrl = DeviceL('Right room light', 25, 0, 0)
+    rrl = DeviceL('Right room light', 2, 0, 0)
     devices['Right room light'] = rrl
-    cp = DeviceL('Computer', 70, 0, 0)
+    cp = DeviceL('Computer', 7, 0, 0)
     devices['Computer'] = cp
 
     return devices
