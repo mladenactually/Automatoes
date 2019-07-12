@@ -205,7 +205,7 @@ class SmartHomeView(QWidget):
         self.open_dialog('AC')
 
     def open_livingl(self):
-        self.open_dialog('Living room light')
+        self.open_dialog('Livingroom light')
 
     def open_stereo(self):
         self.open_dialog('Stereo')
