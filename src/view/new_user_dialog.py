@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QApplication, QDialog, QPushButton, QRadioButton, QComboBox, QGridLayout, QLabel, QLineEdit
-
+import os
 
 
 class NewUserDialog(QDialog):
@@ -41,4 +41,11 @@ class NewUserDialog(QDialog):
         self.lastname = self.lastnameInput.text()
         self.username = self.usernameInput.text()
         self.password = self.passwordInput.text()
+        self.add_new()
         self.hide()
+
+    def add_new(self):
+        if self.lastname != "" and self.name != "" and self.username != "" and self.password != "":
+            file = open(".." + os.sep + "Data" + os.sep + 'user_data.txt', 'a')
+            file.write(self.name + "|" + self.lastname + "|" + self.username + "|" + self.password + "\n")
+            file.close()

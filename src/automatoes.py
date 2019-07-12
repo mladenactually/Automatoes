@@ -83,13 +83,13 @@ def devices_setup():
 
 def home_setup():
     devices = devices_setup()
-    home = SmartHome(None, devices)
+    home = SmartHome(None, devices, 5000)
     return home
 
 
 def login(user_data, username, password):
     if username in user_data:
-        if user_data[username] == password:
+        if user_data[username][3] == password:
             return True
         else:
             return False
@@ -100,14 +100,17 @@ def logout():
     pass
 
 def load_user_data():
-    file = open(".." + os.sep + "Data" + os.sep +'user_data.txt', 'r')
+    file = open(".." + os.sep + "Data" + os.sep + 'user_data.txt', 'r')
     line = file.readline()
     user_data = {}
     while line != "":
-        tokens = line.split("|")
-        username = tokens[0]
-        password = tokens[1]
-        user_data[username] = password
+        tokens = line.strip().split("|")
+        name = tokens[0]
+        last_name = tokens[1]
+        username = tokens[2]
+        password = tokens[3]
+        data = [name, last_name, username, password]
+        user_data[username] = data
         line = file.readline()
     file.close()
     return user_data
