@@ -138,7 +138,7 @@ class SmartHomeView(QWidget):
         self.device_menu.addItem('       Microwave')
         self.device_menu.addItem('       Kitchen light')
         self.device_menu.addItem('LIVING ROOM')
-        self.device_menu.addItem('       TV')
+        self.device_menu.addItem('       Tv')
         self.device_menu.addItem('       AC')
         self.device_menu.addItem('       Stereo')
         self.device_menu.addItem('       Livingroom light')
