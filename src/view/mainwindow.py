@@ -1,6 +1,7 @@
-from PyQt5.QtWidgets import QWidget, QMainWindow, QStatusBar, QGridLayout, QLabel, QComboBox, QPushButton, QHBoxLayout
+from PyQt5.QtWidgets import QWidget, QMainWindow, QStatusBar, QGridLayout, QLabel, QComboBox, QPushButton, QHBoxLayout, QToolBar,QAction
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtCore import Qt
+from src.view.new_user_dialog import NewUserDialog
 
 from src.view.smarthome import SmartHomeView
 
@@ -18,9 +19,12 @@ class MainWindow(QMainWindow):
         self.setFixedSize(width/2 + 200, height/2 + 200)
         self.setup_components()
 
+
     def setup_components(self):
         self.statusbar_setup()
         self.central_widget_setup()
+        self.toolbar_widget_setup()
+
 
     def statusbar_setup(self):
         stat = QStatusBar()
@@ -33,3 +37,19 @@ class MainWindow(QMainWindow):
     def central_widget_setup(self):
         home = SmartHomeView(self.app.home)
         self.setCentralWidget(home)
+
+
+    def toolbar_widget_setup(self):
+        new_user = QPushButton('Add new user')
+        new_user.clicked.connect(self.open_new_user_dialog)
+
+        self.mainToolBar = QToolBar()
+        self.mainToolBar.addWidget(new_user)
+        self.addToolBar(self.mainToolBar)
+        self.mainToolBar.setFixedHeight(36)
+        self.mainToolBar.setFloatable(False)
+
+    def open_new_user_dialog(self):
+        dialog = NewUserDialog()
+        dialog.show()
+        dialog.exec_()
