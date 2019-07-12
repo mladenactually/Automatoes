@@ -27,6 +27,10 @@ class LoginDialog(QDialog):
         self.selectButton.clicked.connect(self.confirmed)
 
     def confirmed(self):
+        if self.name.text() == "":
+            return
+        if self.passw.text() == "":
+            return
         self.username = self.name.text()
         self.password = self.passw.text()
-        self.hide()
+        self.close()
